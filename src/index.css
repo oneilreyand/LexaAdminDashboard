@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom dark mode styles */
+@layer base {
+  :root {
+    --color-dark-bg: #1e1e2e;
+    --color-dark-sidebar: #252836;
+    --color-dark-text: #e0e0e0;
+  }
+  
+  .dark {
+    color-scheme: dark;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-custom-blue-600;
+  }
+
+  .subheading, .secondary-text {
+    @apply text-slate-500;
+  }
+
+  p, body {
+    @apply text-gray-700;
+  }
+
+  a {
+    @apply text-custom-blue-500 hover:underline;
+  }
+
+  /* Cards & Containers */
+  .card {
+    @apply bg-white border border-slate-200 rounded-lg shadow-md;
+  }
+
+  /* Navigation */
+  .nav-active {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-sub-menu-active;
+  }
+
+  /* Icon Colors */
+  .icon-primary {
+    @apply text-custom-blue-500;
+  }
+
+  .icon-secondary {
+    @apply text-slate-500;
+  }
+
+  .icon-success {
+    @apply text-green-500;
+  }
+
+  .icon-warning {
+    @apply text-yellow-500;
+  }
+
+  .icon-error {
+    @apply text-red-500;
+  }
+
+  .icon-info {
+    @apply text-blue-400;
+  }
+}
+
+@layer components {
+  .dark .bg-dark-bg {
+    background-color: var(--color-dark-bg);
+  }
+
+  .dark .bg-dark-sidebar {
+    background-color: var(--color-dark-sidebar);
+  }
+
+  .dark .text-dark-text {
+    color: var(--color-dark-text);
+  }
+
+  /* Dark mode adjustments for new color palette */
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    @apply text-white;
+  }
+
+  .dark .subheading,
+  .dark .secondary-text {
+    @apply text-gray-300;
+  }
+
+  .dark p,
+  .dark body {
+    @apply text-gray-300;
+  }
+
+  .dark .card {
+    @apply bg-gray-800 border-gray-700;
+  }
+}
+
+/* Snackbar animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-fade-out {
+  animation: fadeOut 0.3s ease-in-out;
+}
+
+/* Custom scrollbar styling for snackbar */
+.snackbar-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.snackbar-scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.snackbar-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.snackbar-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode scrollbar */
+.dark .snackbar-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dark .snackbar-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
