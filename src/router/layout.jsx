@@ -9,7 +9,7 @@ import ErrorBoundary from "../pages/ErrorBoundary";
 export default function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
-  
+
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark');

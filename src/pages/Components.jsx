@@ -4,8 +4,10 @@ import TabsNav from '../components/molecules/TabsNav'
 import ToastDocPage from './SnackbarDocPage'
 import ButtonDocPage from './ButtonDocPage'
 import TableDocPage from './TableDocPage'
+import DateRangePickerDocPage from './DateTimePickerDocPage'
 import NoContent from '../components/atoms/NoContent'
 import TableSample from '../components/atoms/TableSample'
+import OffCanvasDocPage from './OffCanvasDocPage'
 
 
 const Components = () => {
@@ -39,7 +41,9 @@ const Components = () => {
       dropdown: [
         { id: 'snackbar', label: 'Snackbar' },
         { id: 'button', label: 'Button' },
-        { id: 'notifications', label: 'Notifications' }
+        { id: 'notifications', label: 'Notifications' },
+        { id: 'date&timePicker', label: 'Date and Time Picker' },
+        { id: 'offcanvas', label: 'Off Canvas' }
       ]
     },
     {
@@ -60,6 +64,8 @@ const Components = () => {
             {activeTab === 'snackbar' && <ToastDocPage />}
             {activeTab === 'button' && <ButtonDocPage />}
             {activeTab === 'notifications' && <NoContent />}
+            {activeTab === 'date&timePicker' && <DateRangePickerDocPage />}
+            {activeTab === 'offcanvas' && <OffCanvasDocPage />}
             {activeTab === 'docTable' && <TableDocPage />}
             {activeTab === 'exampleTable' && <TableSample />}
           </div>

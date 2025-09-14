@@ -163,3 +163,12 @@
 .dark .snackbar-scroll-container::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }
+/* Custom styles for DateRangePicker calendar */
+.rdp {
+  font-size: 0.875rem; /* smaller font size */
+  color: #6f6b7d; /* custom font color */
+}
+
+.rdp-nav button {
+  display: none; /* hide chevron buttons */
+}
