@@ -33,6 +33,9 @@ module.exports = {
       fontFamily: {
         sans: ['Public Sans', ...defaultTheme.fontFamily.sans],
       },
+      borderWidth: {
+        '3': '3px',
+      },
     },
   },
   plugins: [],

@@ -9,6 +9,7 @@ import NoContent from '../components/atoms/NoContent'
 import TableSample from '../components/atoms/TableSample'
 import OffCanvasDocPage from './OffCanvasDocPage'
 import ModalDocPage from './ModalDocPage'
+import SpinnerDocPage from './SpinnerDocPage'
 
 
 const Components = () => {
@@ -42,6 +43,7 @@ const Components = () => {
       dropdown: [
         { id: 'snackbar', label: 'Snackbar' },
         { id: 'button', label: 'Button' },
+        { id: 'spinner', label: 'Spinner' },
         { id: 'notifications', label: 'Notifications' },
         { id: 'date&timePicker', label: 'Date and Time Picker' },
         { id: 'offcanvas', label: 'Off Canvas' },
@@ -65,6 +67,7 @@ const Components = () => {
           <div className="flex-grow w-full overflow-auto">
             {activeTab === 'snackbar' && <ToastDocPage />}
             {activeTab === 'button' && <ButtonDocPage />}
+            {activeTab === 'spinner' && <SpinnerDocPage />}
             {activeTab === 'notifications' && <NoContent />}
             {activeTab === 'date&timePicker' && <DateRangePickerDocPage />}
             {activeTab === 'offcanvas' && <OffCanvasDocPage />}

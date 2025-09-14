@@ -2,6 +2,8 @@ import React, { useState, useMemo } from 'react';
 import Table from './Table';
 import Avatar from './Avatar';
 import { DropdownMenu } from '../molecules/Ellipsis';
+import Button from './Button';
+import Checkbox from './Checkbox';
 
 // Generate sample data
 const generateSampleData = (count) => {
@@ -59,19 +61,15 @@ const TableSample = () => {
     {
       key: 'select',
       label: (
-        <input
-          type="checkbox"
+        <Checkbox
           checked={selectedRows.length === data.length && data.length > 0}
           onChange={handleSelectAll}
-          className="rounded"
         />
       ),
       render: (value, row) => (
-        <input
-          type="checkbox"
+        <Checkbox
           checked={selectedRows.includes(row.id)}
           onChange={() => handleSelectRow(row.id)}
-          className="rounded"
         />
       )
     },
@@ -116,18 +114,20 @@ const TableSample = () => {
               Selected: {selectedRows.length} rows
             </p>
             <div className="flex space-x-2">
-              <button
+              <Button
                 onClick={handleBulkExport}
-                className="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
+                variant="primary"
+                size="small"
               >
                 Export
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={handleBulkDelete}
-                className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600"
+                variant="danger"
+                size="small"
               >
                 Delete
-              </button>
+              </Button>
             </div>
           </div>
         </div>

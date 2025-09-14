@@ -1,4 +1,5 @@
 import React from "react";
+import Spinner from "./Spinner";
 
 const Button = ({
   children,
@@ -7,6 +8,8 @@ const Button = ({
   size = "medium",
   disabled = false,
   rounded = false,
+  loading = false,
+  spinnerType = "spinner",
   className = "",
   ...props
 }) => {
@@ -96,8 +99,13 @@ const Button = ({
   const classes = `${baseClasses} ${sizeClasses[size]} ${roundedClass} ${styles} ${overlay} ${className}`;
 
   return (
-    <button className={classes} disabled={disabled} {...props}>
-      <span className="relative z-10">{children}</span>
+    <button className={classes} disabled={disabled || loading} {...props}>
+      {loading && (
+        <span className="absolute left-3 top-1/2 -translate-y-1/2">
+          <Spinner type={spinnerType} size="small" color="white" />
+        </span>
+      )}
+      <span className={`relative z-10 ${loading ? 'ml-6' : ''}`}>{children}</span>
     </button>
   );
 };
