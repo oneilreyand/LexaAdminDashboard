@@ -8,6 +8,7 @@ import DateRangePickerDocPage from './DateTimePickerDocPage'
 import NoContent from '../components/atoms/NoContent'
 import TableSample from '../components/atoms/TableSample'
 import OffCanvasDocPage from './OffCanvasDocPage'
+import ModalDocPage from './ModalDocPage'
 
 
 const Components = () => {
@@ -43,7 +44,8 @@ const Components = () => {
         { id: 'button', label: 'Button' },
         { id: 'notifications', label: 'Notifications' },
         { id: 'date&timePicker', label: 'Date and Time Picker' },
-        { id: 'offcanvas', label: 'Off Canvas' }
+        { id: 'offcanvas', label: 'Off Canvas' },
+        { id: 'modal', label: 'Modal' }
       ]
     },
     {
@@ -66,6 +68,7 @@ const Components = () => {
             {activeTab === 'notifications' && <NoContent />}
             {activeTab === 'date&timePicker' && <DateRangePickerDocPage />}
             {activeTab === 'offcanvas' && <OffCanvasDocPage />}
+            {activeTab === 'modal' && <ModalDocPage />}
             {activeTab === 'docTable' && <TableDocPage />}
             {activeTab === 'exampleTable' && <TableSample />}
           </div>
