@@ -46,8 +46,8 @@ export function DatePicker({ className, date, onDateChange }) {
             {formatDate(selectedDate)}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="p-0">
-          <div className="flex flex-col space-y-4 p-6">
+        <PopoverContent className="p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div className="flex flex-col space-y-4 p-6 dark:bg-gray-800">
             {/* Calendar */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">

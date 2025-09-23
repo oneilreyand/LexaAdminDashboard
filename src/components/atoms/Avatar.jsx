@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Avatar = ({ 
-  src, 
-  alt = 'Avatar', 
+const Avatar = ({
+  src,
+  alt = 'Avatar',
   size = 'medium',
   className = '',
   fallback = null,
-  ...props 
+  ...props
 }) => {
+  const [hasError, setHasError] = useState(false);
+
   const sizeClasses = {
     small: 'w-8 h-8',
     medium: 'w-10 h-10',
@@ -19,12 +21,17 @@ const Avatar = ({
 
   const classes = `${baseClasses} ${sizeClasses[size]} ${className}`;
 
-  if (src) {
+  const handleImageError = () => {
+    setHasError(true);
+  };
+
+  if (src && !hasError) {
     return (
       <img
         src={src}
         alt={alt}
         className={classes}
+        onError={handleImageError}
         {...props}
       />
     );

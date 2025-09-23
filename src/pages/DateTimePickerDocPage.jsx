@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { DatePicker } from '../components/molecules/DatePicker'
-import { DateRangePicker } from '../components/molecules/DateRangePicker'
+import { VanillaDatePicker } from '../components/molecules/VanillaDatePicker'
+import { VanillaDateRangePicker } from '../components/molecules/VanillaDateRangePicker'
 import { TimePicker } from '../components/molecules/TimePicker'
 
 
@@ -29,8 +29,8 @@ function DateTimePickerDocPage() {
   }
 
   // Code examples
-  const importSnippet = `import { DatePicker } from '../components/molecules/DatePicker'
-import { DateRangePicker } from '../components/molecules/DateRangePicker'
+  const importSnippet = `import { VanillaDatePicker } from '../components/molecules/VanillaDatePicker'
+import { VanillaDateRangePicker } from '../components/molecules/VanillaDateRangePicker'
 import { TimePicker } from '../components/molecules/TimePicker'`
 
   const usageSnippet = `const Component = () => {
@@ -43,12 +43,12 @@ import { TimePicker } from '../components/molecules/TimePicker'`
 
   return (
     <div>
-      <DatePicker
+      <VanillaDatePicker
         date={date}
         onDateChange={setDate}
         className="w-full"
       />
-      <DateRangePicker
+      <VanillaDateRangePicker
         date={dateRange}
         onDateChange={setDateRange}
         className="w-full"
@@ -63,13 +63,13 @@ import { TimePicker } from '../components/molecules/TimePicker'`
 }`
 
   const customPropsSnippet = `// Contoh penggunaan dengan props tambahan
-<DatePicker
+<VanillaDatePicker
   date={selectedDate}
   onDateChange={handleDateChange}
   className="w-80 custom-datepicker"
 />
 
-<DateRangePicker
+<VanillaDateRangePicker
   date={selectedDateRange}
   onDateChange={handleDateRangeChange}
   className="w-80 custom-datepicker"
@@ -120,7 +120,7 @@ import { TimePicker } from '../components/molecules/TimePicker'`
               <label className="text-sm font-medium text-blue-800 dark:text-blue-300">
                 Pilih Tanggal Tunggal:
               </label>
-              <DatePicker
+              <VanillaDatePicker
                 date={selectedDate}
                 onDateChange={handleDateChange}
                 className="w-80"
@@ -135,7 +135,7 @@ import { TimePicker } from '../components/molecules/TimePicker'`
               <label className="text-sm font-medium text-blue-800 dark:text-blue-300">
                 Pilih Rentang Tanggal:
               </label>
-              <DateRangePicker
+              <VanillaDateRangePicker
                 date={selectedDateRange}
                 onDateChange={handleDateRangeChange}
                 className="w-80"
@@ -262,7 +262,7 @@ import { TimePicker } from '../components/molecules/TimePicker'`
               </h3>
               <div className="space-y-4">
                 <div>
-                  <h4 className="font-medium text-gray-700 dark:text-gray-300">DatePicker</h4>
+                  <h4 className="font-medium text-gray-700 dark:text-gray-300">VanillaDatePicker</h4>
                   <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 space-y-1 ml-4">
                     <li><code>date</code> (Date object) - Tanggal yang dipilih</li>
                     <li><code>onDateChange</code> (function) - Callback function yang dipanggil saat tanggal berubah</li>
@@ -270,7 +270,7 @@ import { TimePicker } from '../components/molecules/TimePicker'`
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-700 dark:text-gray-300">DateRangePicker</h4>
+                  <h4 className="font-medium text-gray-700 dark:text-gray-300">VanillaDateRangePicker</h4>
                   <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 space-y-1 ml-4">
                     <li><code>date</code> (object) - Objek rentang tanggal dengan properti <code>from</code> dan <code>to</code> (Date objects)</li>
                     <li><code>onDateChange</code> (function) - Callback function yang dipanggil saat rentang tanggal berubah</li>
@@ -285,9 +285,8 @@ import { TimePicker } from '../components/molecules/TimePicker'`
                 Dependencies
               </h3>
               <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                <li><code>date-fns</code> - Untuk manipulasi tanggal</li>
-                <li><code>react-day-picker</code> - Untuk komponen kalender</li>
-                <li><code>lucide-react</code> - Untuk ikon</li>
+                <li><code>Vanilla JavaScript</code> - Menggunakan built-in Date API tanpa library eksternal</li>
+                <li><code>lucide-react</code> - Untuk ikon (jika diperlukan)</li>
               </ul>
             </div>
           </div>

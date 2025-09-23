@@ -8,7 +8,8 @@ import {
 
 import {
     Dashboard,
-    Components
+    Components,
+    Calendar,
 } from '../pages'
 import MainTemplate from '../components/templates/MainTemplate'
 import ProtectedRoute from './ProtectedRoute';
@@ -23,6 +24,7 @@ function AppRouter() {
                 <Route index element={<Navigate to="/dashboard" replace />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/components" element={<Components />} />
+                <Route path="/calendar" element={<Calendar />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

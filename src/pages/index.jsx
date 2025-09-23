@@ -3,6 +3,7 @@ import Components from "./Components"
 import ErrorBoundary from "./ErrorBoundary"
 import ErrorPage from "./ErrorPage"
 import ToastDocPage from "./SnackbarDocPage"
+import Calendar from "./Calendar"
 
 export {
     Dashboard,
@@ -10,4 +11,5 @@ export {
     ErrorBoundary,
     ErrorPage,
     ToastDocPage,
+    Calendar,
 }

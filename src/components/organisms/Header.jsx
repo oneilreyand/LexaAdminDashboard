@@ -1,8 +1,7 @@
 import React from "react";
-import { Bell, Sun, Moon, Settings, Menu, PanelLeft } from "lucide-react";
+import { Bell, Sun, Moon, Menu } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../../store/action/theme";
-import { toggleOffCanvas } from "../../store/action/offcanvas";
 import SearchInput from "../molecules/SearchInput";
 import IconButton from "../atoms/IconButton";
 import Avatar from "../atoms/Avatar";
@@ -14,10 +13,6 @@ const Header = ({toggleSidebar}) => {
 
   const handleToggleDarkMode = () => {
     dispatch(toggleDarkMode());
-  };
-
-  const handleToggleOffCanvas = () => {
-    dispatch(toggleOffCanvas());
   };
 
   return (
@@ -46,17 +41,6 @@ const Header = ({toggleSidebar}) => {
         <NotificationButton
           icon={<Bell className="h-5 w-5 text-slate dark:text-gray-400" />}
           count={3}
-          variant="ghost"
-          size="medium"
-        />
-        <IconButton
-          icon={<PanelLeft className="h-5 w-5 text-slate dark:text-gray-400" />}
-          variant="ghost"
-          size="medium"
-          onClick={handleToggleOffCanvas}
-        />
-        <IconButton
-          icon={<Settings className="h-5 w-5 text-slate dark:text-gray-400" />}
           variant="ghost"
           size="medium"
         />

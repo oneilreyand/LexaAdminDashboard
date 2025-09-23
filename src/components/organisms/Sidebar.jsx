@@ -7,10 +7,11 @@ import {
   Mail,
   MessageSquare,
   Calendar,
-  Users,
+  Settings2,
   Layers,
   Box,
   X,
+  Users,
 } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import MenuSection from "./MenuSection";
@@ -29,7 +30,7 @@ const appsPages = [
   { label: "Email", icon: <Mail size={20} />, path: "/email" },
   { label: "Chat", icon: <MessageSquare size={20} />, path: "/chat" },
   { label: "Calendar", icon: <Calendar size={20} />, path: "/calendar" },
-  { label: "Users", icon: <Users size={20} />, path: "/users" },
+  { label: "Settings", icon: <Settings2 size={20} />, path: "/settings" },
 ];
 
 const Sidebar = ({ isOpen, closeSidebar }) => {
@@ -59,11 +60,11 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
           <span className="text-sub-menu-active text-2xl">⚡</span>
           <span
             className="
-            font-bold text-2xl text-sidebar-text dark:text-dark-text
+            font-bold text-xl text-sidebar-text dark:text-dark-text
             block
             md:opacity-0 md:group-hover:opacity-100"
             >
-            Lexta
+            Next Dashboard
           </span>
         </div>
         <button
@@ -83,7 +84,7 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
           onItemClick={handleClick}
         />
         <MenuSection
-          title="Apps & Pages"
+          title="Sub Menu"
           items={appsPages}
           location={location}
           onItemClick={handleClick}

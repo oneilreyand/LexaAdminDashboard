@@ -169,6 +169,35 @@
   color: #6f6b7d; /* custom font color */
 }
 
-.rdp-nav button {
-  display: none; /* hide chevron buttons */
-}
+  .rdp-nav button {
+    display: none; /* hide chevron buttons */
+  }
+
+  /* Dark mode styles for react-day-picker */
+  .dark .rdp {
+    background-color: var(--color-dark-bg);
+    color: var(--color-dark-text);
+  }
+
+  .dark .rdp-day {
+    background-color: transparent;
+    color: var(--color-dark-text);
+  }
+
+  .dark .rdp-day:hover:not([disabled]) {
+    background-color: #7183e8; /* blue-500 */
+    color: white;
+  }
+
+  .dark .rdp-day_selected,
+  .dark .rdp-day_selected:hover {
+    background-color: #7183e8; /* blue-600 */
+    color: white;
+  }
+
+  .dark .rdp-day_today {
+    font-weight: bold;
+    border-color: #7183e8; /* blue-600 */
+  }
+
+

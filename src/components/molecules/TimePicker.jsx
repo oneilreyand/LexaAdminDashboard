@@ -6,7 +6,7 @@ const ChevronUpIcon = ({ onClick }) => (
   <button
     type="button"
     onClick={onClick}
-    className="inline-flex items-center justify-center w-6 h-6 text-gray-600 hover:text-gray-900"
+    className="inline-flex items-center justify-center w-6 h-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
     aria-label="Increase value"
   >
     <ChevronUp className="w-4 h-4" />
@@ -17,7 +17,7 @@ const ChevronDownIcon = ({ onClick }) => (
   <button
     type="button"
     onClick={onClick}
-    className="inline-flex items-center justify-center w-6 h-6 text-gray-600 hover:text-gray-900"
+    className="inline-flex items-center justify-center w-6 h-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
     aria-label="Decrease value"
   >
     <ChevronDown className="w-4 h-4" />

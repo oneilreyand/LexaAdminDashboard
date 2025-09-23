@@ -105,7 +105,7 @@ const Button = ({
           <Spinner type={spinnerType} size="small" color="white" />
         </span>
       )}
-      <span className={`relative z-10 ${loading ? 'ml-6' : ''}`}>{children}</span>
+      <span className={`relative z-1 ${loading ? 'ml-6' : ''}`}>{children}</span>
     </button>
   );
 };
