@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Button from "../atoms/Button";
 
 function getDaysInMonth(year, month) {
   return new Date(year, month + 1, 0).getDate();
@@ -117,7 +118,7 @@ export function VanillaDateRangePicker({ className, date, onDateChange }) {
     <div className={`relative inline-block ${className || ""}`} ref={ref}>
       <button
         type="button"
-        className="border rounded px-3 py-2 w-full text-left"
+        className="border rounded px-3 py-2 text-left"
         onClick={() => setIsOpen(!isOpen)}
       >
         {formatRange()}
@@ -125,28 +126,28 @@ export function VanillaDateRangePicker({ className, date, onDateChange }) {
       {isOpen && (
         <div className="absolute z-10 mt-1 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded shadow-lg p-4 w-80">
           <div className="flex justify-between items-center mb-2">
-            <button
-              type="button"
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={handlePrevMonth}
-              className="p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded text-gray-900 dark:text-gray-200"
               aria-label="Previous Month"
             >
               {'<'}
-            </button>
+            </Button>
             <div className="font-medium text-gray-900 dark:text-gray-200">
               {new Date(currentYear, currentMonth).toLocaleString("default", {
                 month: "long",
                 year: "numeric",
               })}
             </div>
-            <button
-              type="button"
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={handleNextMonth}
-              className="p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded text-gray-900 dark:text-gray-200"
               aria-label="Next Month"
             >
               {'>'}
-            </button>
+            </Button>
           </div>
           <div className="grid grid-cols-7 gap-1 text-center text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">
             <div>Sun</div>
@@ -179,37 +180,39 @@ export function VanillaDateRangePicker({ className, date, onDateChange }) {
               )
             )}
           </div>
-          <div className="flex gap-2">
+          <div className="flex flex-col gap-2">
             <input
               type="text"
-              className="border rounded px-2 py-1 flex-1"
+              className="border rounded px-2 py-1"
               value={startDate ? formatDate(startDate) : ""}
               readOnly
               placeholder="Start date"
             />
             <input
               type="text"
-              className="border rounded px-2 py-1 flex-1"
+              className="border rounded px-2 py-1"
               value={endDate ? formatDate(endDate) : ""}
               readOnly
               placeholder="End date"
             />
           </div>
           <div className="flex justify-end gap-2 mt-4">
-            <button
-              type="button"
-              className="px-3 py-1 border rounded hover:bg-gray-200"
+            <Button
+               variant="primary"
+               size="small"
+               styleType="outline"
               onClick={() => setIsOpen(false)}
             >
               Cancel
-            </button>
-            <button
-              type="button"
-              className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+            </Button>
+            <Button
+               variant="primary"
+               size="small"
+               styleType="basic"
               onClick={handleApply}
             >
               Apply
-            </button>
+            </Button>
           </div>
         </div>
       )}

@@ -48,7 +48,7 @@ export function OffCanvas({ isOpen, onClose, size = 'normal', position = 'left',
 
       {/* OffCanvas Panel */}
       <div
-        className={`fixed ${positionClasses[position]} ${sizeClasses[size]} bg-white dark:bg-gray-800 shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${translateClasses[position]} ${visibilityClasses}`}
+        className={`fixed ${positionClasses[position]} ${sizeClasses[size]} bg-white dark:bg-gray-800 shadow-lg z-50 transform transition-all duration-300 ease-in-out ${translateClasses[position]} ${visibilityClasses}`}
       >
         <div className="relative px-4 pb-4 pt-0 h-full overflow-auto">
           <button

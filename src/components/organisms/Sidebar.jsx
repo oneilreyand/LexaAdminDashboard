@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from 'react-redux';
+import { setSidebarCollapsed } from '../../store/action/sidebar';
 import {
   LayoutDashboard,
   ShoppingCart,
@@ -12,6 +14,8 @@ import {
   Box,
   X,
   Users,
+  Kanban as KanbanIcon,
+  Video,
 } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import MenuSection from "./MenuSection";
@@ -19,7 +23,8 @@ import MenuSection from "./MenuSection";
 const menuItems = [
   { label: "Dashboards", icon: <LayoutDashboard size={20} />, path: "/dashboard", badge: 5 },
   { label: "Components", icon: <Box size={20} />, path: "/components" },
-  { label: "CRM", icon: <Users size={20} />, path: "/crm" },
+  { label: "Course Video", icon: <Video size={20} />, path: "/list-video" },
+  { label: "Buddy", icon: <Users size={20} />, path: "/buddy" },
   { label: "eCommerce", icon: <ShoppingCart size={20} />, path: "/ecommerce" },
   { label: "Logistics", icon: <Package size={20} />, path: "/logistics" },
   { label: "Academy", icon: <GraduationCap size={20} />, path: "/academy" },
@@ -27,15 +32,50 @@ const menuItems = [
 ];
 
 const appsPages = [
-  { label: "Email", icon: <Mail size={20} />, path: "/email" },
-  { label: "Chat", icon: <MessageSquare size={20} />, path: "/chat" },
   { label: "Calendar", icon: <Calendar size={20} />, path: "/calendar" },
+  { label: "Kanban", icon: <KanbanIcon size={20} />, path: "/kanban" },
   { label: "Settings", icon: <Settings2 size={20} />, path: "/settings" },
 ];
 
 const Sidebar = ({ isOpen, closeSidebar }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const checkSidebarWidth = () => {
+      const sidebar = document.querySelector('aside');
+      if (sidebar) {
+        const computedStyle = window.getComputedStyle(sidebar);
+        const width = parseInt(computedStyle.width);
+        // If width is around 4rem (64px), it's collapsed
+        const isCollapsed = width <= 80;
+        dispatch(setSidebarCollapsed(isCollapsed));
+      }
+    };
+
+    // Check on mount and when window resizes
+    checkSidebarWidth();
+    window.addEventListener('resize', checkSidebarWidth);
+
+    // Also listen for mouse events to detect hover state
+    const handleMouseEnter = () => dispatch(setSidebarCollapsed(false));
+    const handleMouseLeave = () => dispatch(setSidebarCollapsed(true));
+
+    const sidebar = document.querySelector('aside');
+    if (sidebar) {
+      sidebar.addEventListener('mouseenter', handleMouseEnter);
+      sidebar.addEventListener('mouseleave', handleMouseLeave);
+    }
+
+    return () => {
+      window.removeEventListener('resize', checkSidebarWidth);
+      if (sidebar) {
+        sidebar.removeEventListener('mouseenter', handleMouseEnter);
+        sidebar.removeEventListener('mouseleave', handleMouseLeave);
+      }
+    };
+  }, [dispatch]);
 
   const handleClick = (path) => {
     navigate(path);

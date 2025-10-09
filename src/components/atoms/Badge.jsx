@@ -1,21 +1,22 @@
 import React from 'react';
 
-const Badge = ({ 
-  count, 
-  variant = 'primary', 
-  size = 'small', 
-  className = '', 
-  ...props 
+const Badge = ({
+  count,
+  children,
+  variant = 'primary',
+  size = 'small',
+  className = '',
+  ...props
 }) => {
-  const baseClasses = 'rounded-full text-white font-medium';
-  
+  const baseClasses = 'inline-flex items-center rounded-md font-medium';
+
   const variantClasses = {
-    primary: 'bg-custom-blue-500',
-    secondary: 'bg-gray-600',
-    danger: 'bg-red-500',
-    success: 'bg-green-500',
-    warning: 'bg-yellow-500',
-    info: 'bg-blue-400'
+    primary: 'bg-custom-blue-500 text-white',
+    secondary: 'bg-gray-600 text-white',
+    danger: 'bg-red-500 text-white',
+    success: 'bg-green-500 text-white',
+    warning: 'bg-yellow-500 text-black',
+    info: 'bg-blue-400 text-white'
   };
 
   const sizeClasses = {
@@ -26,13 +27,23 @@ const Badge = ({
 
   const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 
-  if (!count) return null;
+  if (count !== undefined && count !== null) {
+    return (
+      <span className={classes} {...props}>
+        {count}
+      </span>
+    );
+  }
 
-  return (
-    <span className={classes} {...props}>
-      {count}
-    </span>
-  );
+  if (children) {
+    return (
+      <span className={classes} {...props}>
+        {children}
+      </span>
+    );
+  }
+
+  return null;
 };
 
 export default Badge;

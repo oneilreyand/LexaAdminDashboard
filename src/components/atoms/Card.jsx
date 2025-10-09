@@ -4,7 +4,7 @@ const Card = ({
   children, 
   className = '', 
   variant = 'default',
-  padding = 'p-6',
+  padding = 'p-4',
   ...props 
 }) => {
   const baseClasses = 'rounded-lg border bg-white dark:bg-gray-800 shadow-sm';

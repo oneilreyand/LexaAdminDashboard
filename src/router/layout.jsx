@@ -1,13 +1,19 @@
-import {useState, useEffect} from 'react'
-import { useSelector } from 'react-redux';
+import {useEffect} from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleSidebar, closeSidebar } from '../store/action/sidebar';
 import Sidebar from "../components/organisms/Sidebar";
 import Header from "../components/organisms/Header";
 import Snackbar from "../components/organisms/Snackbar";
 import { Outlet } from "react-router-dom";
 import ErrorBoundary from "../pages/ErrorBoundary";
 
+
+
+
 export default function Layout() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const dispatch = useDispatch();
+  const sidebarOpen = useSelector(state => state.sidebar.isOpen);
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   useEffect(() => {
@@ -18,19 +24,20 @@ export default function Layout() {
     }
   }, [isDarkMode]);
 
-  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
-  const closeSidebar = () => setSidebarOpen(false);
+
+  const TOGGLE_SIDEBAR = () => dispatch(toggleSidebar());
+  const CLOSE_SIDEBAR = () => dispatch(closeSidebar());
 
   return (
     <div className={`flex h-screen ${isDarkMode ? 'dark bg-dark-bg' : 'bg-gray-100'}`}>
       {/* Sidebar */}
-      <Sidebar isOpen={sidebarOpen} closeSidebar={closeSidebar} />
+      <Sidebar isOpen={sidebarOpen} closeSidebar={CLOSE_SIDEBAR} />
 
       {/* Main content area */}
       <div className="flex-1 flex flex-col">
         {/* Floating Header */}
         <div className="sticky top-0 z-20 bg-white dark:bg-dark-bg shadow-md mx-6 my-4 rounded-xl">
-          <Header toggleSidebar={toggleSidebar}/>
+          <Header toggleSidebar={TOGGLE_SIDEBAR}/>
         </div>
 
         {/* Content */}

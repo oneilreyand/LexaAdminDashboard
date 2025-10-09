@@ -7,6 +7,7 @@ import { OffCanvas } from "../components/atoms/OffCanvas";
 import AddEventForm from "../components/molecules/AddEventForm";
 import { startOfMonth, endOfMonth, startOfWeek, endOfWeek, isWithinInterval, isSameDay, eachDayOfInterval, parseISO } from "date-fns";
 
+
 const ViewMode = ["Month", "Week", "Day", "List"];
 
 function expandEvents(events) {
@@ -27,6 +28,7 @@ function expandEvents(events) {
 }
 
 export default function Calendar() {
+  const isSidebarCollapsed = useSelector(state => state.sidebar.isCollapsed);
   const dispatch = useDispatch();
   const { events } = useSelector(state => state.calendar);
 
@@ -42,6 +44,16 @@ export default function Calendar() {
   });
 
   const [offCanvasOpen, setOffCanvasOpen] = useState(false);
+
+  const getContainerWidth = () => {
+    if (isSidebarCollapsed) {
+      // Sidebar collapsed (4rem = 64px)
+      return 'calc(100vw - 7rem)';
+    } else {
+      // Sidebar expanded (16rem = 256px)
+      return 'calc(100vw - 19rem)';
+    }
+  };
 
   useEffect(() => {
     dispatch(getDataCalendar());
@@ -101,7 +113,7 @@ export default function Calendar() {
   };
 
   return (
-    <div className="h-[calc(100vh-8rem)] flex gap-6 p-6 bg-white dark:bg-gray-900 overflow-y-auto">
+    <div className="h-[calc(100vh-8rem)] flex gap-6 p-6 bg-white dark:bg-gray-900 overflow-y-auto" style={{ width: getContainerWidth() }}>
       <CalendarSidebar
         currentDate={currentDate}
         onDateChange={setCurrentDate}

@@ -17,7 +17,7 @@ const Avatar = ({
     xlarge: 'w-16 h-16'
   };
 
-  const baseClasses = 'rounded-full object-cover flex items-center justify-center bg-gray-200 dark:bg-gray-600';
+  const baseClasses = 'rounded-full object-cover flex items-center justify-center bg-gray-200 dark:bg-gray-600 overflow-hidden';
 
   const classes = `${baseClasses} ${sizeClasses[size]} ${className}`;
 

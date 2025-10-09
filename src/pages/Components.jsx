@@ -11,6 +11,8 @@ import OffCanvasDocPage from './OffCanvasDocPage'
 import ModalDocPage from './ModalDocPage'
 import SpinnerDocPage from './SpinnerDocPage'
 import TooltipDocPage from './TooltipDocPage'
+import AlertDocPage from './AlertDocPage'
+import PaginationDocPage from './PaginationDocPage'
 
 
 const Components = () => {
@@ -45,11 +47,13 @@ const Components = () => {
         { id: 'snackbar', label: 'Snackbar' },
         { id: 'button', label: 'Button' },
         { id: 'spinner', label: 'Spinner' },
+        { id: 'pagination', label: 'Pagination' },
         { id: 'notifications', label: 'Notifications' },
         { id: 'date&timePicker', label: 'Date and Time Picker' },
         { id: 'offcanvas', label: 'Off Canvas' },
         { id: 'modal', label: 'Modal' },
-        { id: 'tooltip', label: 'Tooltip' }
+        { id: 'tooltip', label: 'Tooltip' },
+        { id: 'alert', label: 'Alert' }
       ]
     },
     {
@@ -61,7 +65,7 @@ const Components = () => {
   ]
 
   return (
-    <div className="p-6 h-full">
+    <div className="h-full" >
       {/* TabsNav Demo */}
       <div className="h-full mb-8">
         <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col h-full">
@@ -70,11 +74,13 @@ const Components = () => {
             {activeTab === 'snackbar' && <ToastDocPage />}
             {activeTab === 'button' && <ButtonDocPage />}
             {activeTab === 'spinner' && <SpinnerDocPage />}
+            {activeTab === 'pagination' && <PaginationDocPage />}
             {activeTab === 'notifications' && <NoContent />}
             {activeTab === 'date&timePicker' && <DateRangePickerDocPage />}
             {activeTab === 'offcanvas' && <OffCanvasDocPage />}
             {activeTab === 'modal' && <ModalDocPage />}
             {activeTab === 'tooltip' && <TooltipDocPage />}
+            {activeTab === 'alert' && <AlertDocPage />}
             {activeTab === 'docTable' && <TableDocPage />}
             {activeTab === 'exampleTable' && <TableSample />}
           </div>

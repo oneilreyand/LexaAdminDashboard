@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import Button from './Button';
+import Pagination from '../molecules/Pagination';
 
 const Table = ({
   data = [],
@@ -86,70 +86,17 @@ const Table = ({
         </tbody>
       </table>
 
-      {pagination && totalPages > 1 && (
-        <div className="flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 sm:px-6">
-          <div className="flex items-center">
-            {showPageSizeOptions && (
-              <div className="flex items-center space-x-2">
-                <span className="text-sm text-gray-700 dark:text-gray-300">Show</span>
-                <select
-                  value={currentPageSize}
-                  onChange={(e) => handlePageSizeChange(Number(e.target.value))}
-                  className="block w-20 px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-                >
-                  {pageSizeOptions.map((size) => (
-                    <option key={size} value={size}>
-                      {size}
-                    </option>
-                  ))}
-                </select>
-                <span className="text-sm text-gray-700 dark:text-gray-300">entries</span>
-              </div>
-            )}
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <Button
-              variant="secondary"
-              size="small"
-              styleType="outline"
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-            >
-              Previous
-            </Button>
-
-            <div className="flex space-x-1">
-              {Array.from({ length: totalPages }, (_, i) => i + 1)
-                .filter((page) => {
-                  const start = Math.max(1, currentPage - 2);
-                  const end = Math.min(totalPages, currentPage + 2);
-                  return page >= start && page <= end;
-                })
-                .map((page) => (
-                  <Button
-                    key={page}
-                    variant={page === currentPage ? 'primary' : 'secondary'}
-                    size="small"
-                    styleType={page === currentPage ? 'basic' : 'outline'}
-                    onClick={() => handlePageChange(page)}
-                  >
-                    {page}
-                  </Button>
-                ))}
-            </div>
-
-            <Button
-              variant="secondary"
-              size="small"
-              styleType="outline"
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-            >
-              Next
-            </Button>
-          </div>
-        </div>
+      {pagination && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          pageSize={currentPageSize}
+          onPageSizeChange={handlePageSizeChange}
+          pageSizeOptions={pageSizeOptions}
+          showPageSizeOptions={showPageSizeOptions}
+          totalItems={data.length}
+        />
       )}
     </div>
   );

@@ -10,6 +10,7 @@ const Button = ({
   rounded = false,
   loading = false,
   spinnerType = "spinner",
+  borderless = false,
   className = "",
   ...props
 }) => {
@@ -63,6 +64,13 @@ const Button = ({
       overlay: "black",
       labelBg: "gray-200",
     },
+    ghost: {
+      base: "transparent",
+      text: "gray-900 dark:text-gray-200",
+      border: "transparent",
+      overlay: "gray-200 dark:gray-700",
+      labelBg: "transparent",
+    },
   };
 
   const color = colors[variant];
@@ -90,8 +98,8 @@ const Button = ({
       : `bg-${color.labelBg} text-white focus:ring-${color.base}`;
   } else if (styleType === "outline") {
     styles = disabled
-      ? `border border-${color.border}/50 text-primary/50`
-      : `border border-${color.border} text-primary bg-transparent focus:ring-${color.base}`;
+      ? `${borderless ? '' : `border border-${color.border}/50 `}text-primary/50`
+      : `${borderless ? '' : `border border-${color.border} `}text-primary bg-transparent focus:ring-${color.base}`;
   }
 
   const overlay = `after:content-[''] after:absolute after:inset-0 after:bg-${color.overlay} after:opacity-0 after:transition-opacity hover:after:opacity-10 active:after:opacity-20`;

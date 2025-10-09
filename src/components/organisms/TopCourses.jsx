@@ -28,7 +28,7 @@ const TopCourses = ({ title, data }) => {
       case 'sales':
         return 'bg-yellow-100 dark:bg-yellow-900'
       case 'video':
-        return 'bg-purple-100 dark:bg-purple-900'
+        return 'bg-blue-100 dark:bg-blue-900'
       default:
         return 'bg-blue-100 dark:bg-blue-900'
     }
@@ -37,7 +37,9 @@ const TopCourses = ({ title, data }) => {
   return (
     <Card>
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-semibold text-sidebar-text dark:text-dark-text">{title}</h3>
+        <div>
+          <h3 className="text-lg font-semibold text-sidebar-text dark:text-dark-text">{title}</h3>
+        </div>
         <DropdownMenu/>
       </div>
       <div className="space-y-4">
@@ -50,10 +52,11 @@ const TopCourses = ({ title, data }) => {
               <div>
                 <p className="font-medium text-sidebar-text dark:text-dark-text">{item.title}</p>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {item.category}
                 </p>
               </div>
             </div>
-            <span className="text-lg font-bold text-sidebar-text dark:text-dark-text">{item.value}</span>
+            <span className="text-sm bg-primary text-white px-2 py-1 rounded-md">{item.value} views</span>
           </div>
         ))}
       </div>

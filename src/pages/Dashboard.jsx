@@ -46,32 +46,32 @@ function Dashboard() {
   const dataTopCourses = [
     {
       title: 'Automation Cypress',
-      subtitle: 'QA',
-      value: '12,345',
+      category: 'QA',
+      value: '12,3k',
       type: 'video'
     },
     {
-      title: 'Total Orders',
-      subtitle: 'Orders placed today',
-      value: '1,234',
+      title: 'Basic Front-end Development',
+      category: 'FE',
+      value: '1,2k',
       type: 'video'
     },
     {
-      title: 'Total Sales',
-      subtitle: 'Revenue generated',
-      value: '$45,678',
+      title: 'Advance Dribble Base Visual',
+      category: 'Design',
+      value: '800',
       type: 'video'
     },
     {
-      title: 'Total Orders',
-      subtitle: 'Orders placed today',
-      value: '1,234',
+      title: 'Unit test with Jest',
+      category: 'FE',
+      value: '200',
       type: 'video'
     },
     {
-      title: 'Total Sales',
-      subtitle: 'Revenue generated',
-      value: '$45,678',
+      title: 'Full stack web development',
+      category: 'FE/BE',
+      value: '100',
       type: 'video'
     }
   ]

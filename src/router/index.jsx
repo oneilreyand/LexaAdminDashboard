@@ -10,6 +10,11 @@ import {
     Dashboard,
     Components,
     Calendar,
+    Kanban,
+    Settings,
+    CourseDetail,
+    ListVideoPage,
+    BuddyListPage
 } from '../pages'
 import MainTemplate from '../components/templates/MainTemplate'
 import ProtectedRoute from './ProtectedRoute';
@@ -25,7 +30,12 @@ function AppRouter() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/components" element={<Components />} />
                 <Route path="/calendar" element={<Calendar />} />
-            <Route path="*" element={<NotFound />} />
+                <Route path="/kanban" element={<Kanban />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/course-detail/:id" element={<CourseDetail />} />
+                <Route path="/list-video" element={<ListVideoPage />} />
+                <Route path="/buddy" element={<BuddyListPage />} />
+          <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
     </Router>

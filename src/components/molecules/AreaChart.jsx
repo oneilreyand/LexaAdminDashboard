@@ -9,7 +9,7 @@ const AreaChart = ({ data, categories, height = 80, colors = ['#71DD37'] }) => {
         show: false
       },
       sparkline: {
-        enabled: true
+        enabled: false
       }
     },
     stroke: {
@@ -29,14 +29,25 @@ const AreaChart = ({ data, categories, height = 80, colors = ['#71DD37'] }) => {
     xaxis: {
       categories: categories,
       labels: {
-        show: false
+        show: true,
+        style: {
+          colors: '#6B7280',
+          fontSize: '12px'
+        }
       }
     },
     yaxis: {
-      show: false
+      show: true,
+      labels: {
+        style: {
+          colors: '#6B7280',
+          fontSize: '12px'
+        }
+      }
     },
     tooltip: {
-      enabled: false
+      enabled: true,
+      theme: 'dark'
     },
     colors: colors,
     grid: {
